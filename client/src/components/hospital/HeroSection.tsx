@@ -1,4 +1,5 @@
-import { ArrowRight, BadgeCheck, ImagePlus, Sparkles } from "lucide-react";
+import { ArrowRight, BadgeCheck, BarChart3, ImagePlus, Sparkles } from "lucide-react";
+import logoDark from "../../assets/createtree-logo-dark.png";
 import { scrollToConsult } from "../../utils/scroll";
 import { PhoneMockup } from "./PhoneMockup";
 
@@ -7,17 +8,33 @@ export function HeroSection() {
     <section className="hero-section" id="top">
       <div className="hero-inner">
         <div className="hero-copy">
+          <div className="hero-brand" aria-label="창조트리문화센터">
+            <img src={logoDark} alt="" />
+            <div>
+              <strong>창조트리문화센터</strong>
+              <span>우리 병원 전용 AI 문화센터</span>
+            </div>
+          </div>
+
           <p className="hero-label">전국 산부인과 · 산후조리원 · 소아과 전용</p>
           <h1>
-            산모가 병원을 선택한 이유를,
+            산모가 우리 병원을 선택한 이유를,
             <br />
             출산 후에도 계속 기억하게 합니다.
           </h1>
           <p className="hero-description">
-            창조트리문화센터는 AI 이미지 생성, 오프라인 문화센터, 참여 선물, 미션 리워드를 하나로 연결한
-            병원 전용 임산부 문화서비스입니다. 산모는 임신부터 출산 후까지 즐기고, 병원은 반복되는 고객 접점과
-            차별화된 브랜드 경험을 얻습니다.
+            창조트리문화센터는 AI 서비스, 오프라인 문화센터, 참여 미션을 하나로 연결해 산모 고객의 경험을
+            병원 브랜드의 기억으로 바꾸는 B2B 문화혜택 플랫폼입니다.
           </p>
+
+          <div className="hero-definition">
+            <span>창조트리문화센터란?</span>
+            <p>
+              산모에게는 AI 서비스와 오프라인 문화 프로그램, 참여 미션을 제공하고, 병원에는 진료 이후에도
+              다시 기억되는 고객 접점을 설계해주는 우리 병원 전용 AI 문화센터입니다.
+            </p>
+          </div>
+
           <div className="hero-actions">
             <button className="primary-button" type="button" onClick={scrollToConsult}>
               도입 상담 신청하기 <ArrowRight size={18} />
@@ -26,9 +43,9 @@ export function HeroSection() {
               서비스 화면 보기 <ImagePlus size={18} />
             </a>
           </div>
-          <div className="hero-trust">
+          <div className="hero-trust" aria-label="핵심 제공 가치">
             <span>
-              <BadgeCheck size={16} /> AI 이미지 1년 이용권
+              <BadgeCheck size={16} /> 풍부한 참여 후기 보유
             </span>
             <span>오프라인 문화센터 운영</span>
             <span>선물 미션 시스템</span>
@@ -41,10 +58,11 @@ export function HeroSection() {
           <PhoneMockup variant="mission" />
           <div className="floating-stat stat-one">
             <Sparkles size={18} />
-            <strong>1년형 문화혜택</strong>
+            <strong>다양한 문화혜택</strong>
             <span>임신부터 출산 후까지</span>
           </div>
           <div className="floating-stat stat-two">
+            <BarChart3 size={18} />
             <strong>운영 부담 감소</strong>
             <span>상담, 안내, 참여 관리 구조화</span>
           </div>
@@ -53,4 +71,3 @@ export function HeroSection() {
     </section>
   );
 }
-

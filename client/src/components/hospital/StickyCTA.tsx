@@ -8,10 +8,9 @@ export function StickyCTA() {
       <button type="button" onClick={scrollToConsult}>
         <MessageCircle size={17} /> 상담 신청
       </button>
-      <a href="tel:">
+      <a href="tel:01055071460">
         <PhoneCall size={17} /> 전화 상담
       </a>
     </div>
   );
 }
-

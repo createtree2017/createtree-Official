@@ -21,10 +21,12 @@ export function HospitalLandingPage() {
       <FaqSection />
       <footer className="site-footer">
         <strong>창조트리문화센터</strong>
-        <p>병원별 운영 방식과 혜택 구성은 관련 법령, 의료광고 기준, 내부 운영 정책에 따라 조정될 수 있습니다.</p>
+        <p>
+          병원별 운영 방식과 혜택 구성은 관련 법령, 의료광고 기준, 내부 운영 정책에 따라 조정될 수
+          있습니다.
+        </p>
       </footer>
       <StickyCTA />
     </>
   );
 }
-

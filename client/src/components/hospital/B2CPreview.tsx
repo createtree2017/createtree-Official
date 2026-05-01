@@ -17,7 +17,7 @@ export function B2CPreview() {
             <span>OO여성병원 산모님 전용</span>
             <strong>창조트리문화센터</strong>
           </div>
-          <h3>임신부터 출산 후까지 이어지는 AI 문화혜택</h3>
+          <h3>임신부터 출산 후까지 이어지는 우리병원 문화혜택</h3>
           <p>AI 이미지 만들고, 문화센터 참여하고, 출산 준비 선물까지 만나보세요.</p>
           <div className="preview-actions">
             <button type="button">
@@ -39,4 +39,3 @@ export function B2CPreview() {
     </section>
   );
 }
-
