@@ -29,11 +29,15 @@ export function HospitalLandingPage() {
         <FaqSection />
       </main>
       <footer className="site-footer">
-        <strong>창조트리문화센터</strong>
-        <p>
-          병원별 운영 방식과 혜택 구성은 관련 법령, 의료광고 기준, 내부 운영 정책에 따라 조정될 수
-          있습니다.
-        </p>
+        <div className="site-footer-inner">
+          <strong>창조트리문화센터</strong>
+          <p className="site-footer-service">여성병원 | 산부인과 | 산후조리원 | 소아과 전용 컨설팅/마케팅 기업</p>
+          <p className="site-footer-company">창조트리기획</p>
+          <address className="site-footer-info">
+            <span>사업자등록 : 105 - 68 - 00149</span>
+            <span>이메일 : ct.createtree@createtree.ai.kr</span>
+          </address>
+        </div>
       </footer>
       <StickyCTA />
     </>

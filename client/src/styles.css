@@ -1786,7 +1786,7 @@ textarea:focus-visible {
 }
 
 .site-footer {
-  padding: 40px 20px 118px;
+  padding: 42px 20px 122px;
   color: rgba(255, 255, 255, 0.68);
   background:
     radial-gradient(circle at 50% 0%, rgba(27, 125, 135, 0.18), transparent 30%),
@@ -1794,17 +1794,42 @@ textarea:focus-visible {
   text-align: center;
 }
 
+.site-footer-inner {
+  display: grid;
+  gap: 12px;
+  width: min(720px, 100%);
+  margin: 0 auto;
+}
+
 .site-footer strong {
   display: block;
-  margin-bottom: 10px;
   color: #fff;
   font-weight: 850;
 }
 
-.site-footer p {
+.site-footer p,
+.site-footer address {
   margin: 0 auto;
-  max-width: 720px;
-  line-height: 1.72;
+  line-height: 1.64;
+}
+
+.site-footer-service,
+.site-footer-company {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.site-footer-company {
+  font-weight: 760;
+}
+
+.site-footer-info {
+  display: grid;
+  gap: 6px;
+  width: fit-content;
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.62);
+  font-style: normal;
+  text-align: left;
 }
 
 .sticky-cta {
