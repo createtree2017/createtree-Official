@@ -8,7 +8,9 @@ export function StoryIntroHero() {
         <h1 className="story-intro-title" id="story-intro-title">
           <span>산모가</span>
           <span className="story-intro-title-line" aria-hidden="true" />
-          <span>우리 병원을 선택할 이유</span>
+          <span className="story-intro-tail">
+            <span>우리 병원을</span> <span>선택할 이유</span>
+          </span>
         </h1>
 
         <p className="story-intro-brandline" aria-label="창조트리 문화센터">
