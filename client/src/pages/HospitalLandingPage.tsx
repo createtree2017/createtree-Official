@@ -3,22 +3,31 @@ import { ComparisonSection } from "../components/hospital/ComparisonSection";
 import { FaqSection } from "../components/hospital/FaqSection";
 import { HeroSection } from "../components/hospital/HeroSection";
 import { JourneySection } from "../components/hospital/JourneySection";
+import { LandingNav } from "../components/hospital/LandingNav";
 import { OperationSection } from "../components/hospital/OperationSection";
 import { PackagesSection } from "../components/hospital/PackagesSection";
 import { SolutionSection } from "../components/hospital/SolutionSection";
 import { StickyCTA } from "../components/hospital/StickyCTA";
+import { StoryIntroHero } from "../components/hospital/StoryIntroHero";
 
 export function HospitalLandingPage() {
   return (
     <>
-      <HeroSection />
-      <SolutionSection />
-      <JourneySection />
-      <ComparisonSection />
-      <OperationSection />
-      <PackagesSection />
-      <B2CPreview />
-      <FaqSection />
+      <a className="skip-link" href="#main-content">
+        본문 바로가기
+      </a>
+      <LandingNav />
+      <main id="main-content">
+        <StoryIntroHero />
+        <HeroSection />
+        <SolutionSection />
+        <JourneySection />
+        <ComparisonSection />
+        <OperationSection />
+        <PackagesSection />
+        <B2CPreview />
+        <FaqSection />
+      </main>
       <footer className="site-footer">
         <strong>창조트리문화센터</strong>
         <p>

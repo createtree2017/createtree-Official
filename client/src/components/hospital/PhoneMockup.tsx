@@ -28,7 +28,7 @@ export function PhoneMockup({ variant }: Props) {
     <div className={`phone-mockup phone-${variant}`}>
       <div className="phone-speaker" />
       <div className="phone-screen phone-screen-image">
-        <img src={screen.src} alt={screen.alt} />
+        <img src={screen.src} alt={screen.alt} width={500} height={918} decoding="async" />
       </div>
     </div>
   );
