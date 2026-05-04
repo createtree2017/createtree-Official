@@ -12,11 +12,11 @@ export function HeroSection() {
       <div className="hero-inner">
         <div className="hero-copy">
           <p className="hero-label">전국 산부인과 · 산후조리원 · 소아과 전용</p>
-          <h1>
+          <h2>
             산모가 우리 병원을 선택한 이유를,
             <br />
             출산 후에도 계속 기억하게 합니다.
-          </h1>
+          </h2>
           <p className="hero-description">
             창조트리문화센터는 산모 고객에게 차별화된 고품격 문화혜택을 제공하고, 병원에는 진료 이후에도 다시
             떠오르는 고객 접점을 설계합니다.
