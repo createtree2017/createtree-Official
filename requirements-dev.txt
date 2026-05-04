@@ -1,0 +1,12 @@
+pyyaml
+ruamel.yaml
+python-dotenv
+requests
+chardet
+httpx
+pydantic
+jsonschema
+rich
+typer
+pytest
+playwright

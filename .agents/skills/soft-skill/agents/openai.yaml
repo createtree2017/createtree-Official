@@ -1,0 +1,7 @@
+interface:
+  display_name: "하이엔드 디자인 참고"
+  short_description: "프리미엄 시각 디테일 참고용"
+  brand_color: "#9333EA"
+  default_prompt: "Use $high-end-visual-design only as reference for premium visual details in CT landing work."
+policy:
+  allow_implicit_invocation: false

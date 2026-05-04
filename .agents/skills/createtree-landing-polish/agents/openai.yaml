@@ -1,0 +1,7 @@
+interface:
+  display_name: "창조트리 랜딩 고도화"
+  short_description: "병원 랜딩 전환율·문구·UI 안전 기준"
+  brand_color: "#4F46E5"
+  default_prompt: "Use $createtree-landing-polish to improve the CT hospital landing page safely."
+policy:
+  allow_implicit_invocation: true

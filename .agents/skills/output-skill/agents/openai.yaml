@@ -1,0 +1,7 @@
+interface:
+  display_name: "전체 출력 보장"
+  short_description: "큰 파일과 산출물의 생략 방지"
+  brand_color: "#0F766E"
+  default_prompt: "Use $full-output-enforcement to produce complete, unabridged implementation output."
+policy:
+  allow_implicit_invocation: true

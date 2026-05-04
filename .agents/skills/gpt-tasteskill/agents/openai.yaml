@@ -1,0 +1,7 @@
+interface:
+  display_name: "고급 비주얼 아이디어"
+  short_description: "새 Hero·CTA 방향 참고용"
+  brand_color: "#7C3AED"
+  default_prompt: "Use $gpt-taste only for visual direction ideas, then adapt them to the existing CT stack."
+policy:
+  allow_implicit_invocation: false
