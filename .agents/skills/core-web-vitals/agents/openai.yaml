@@ -1,0 +1,7 @@
+interface:
+  display_name: "Core Web Vitals"
+  short_description: "LCP·INP·CLS 리스크 점검"
+  brand_color: "#F97316"
+  default_prompt: "Use $core-web-vitals to review LCP, INP, and CLS risks."
+policy:
+  allow_implicit_invocation: true

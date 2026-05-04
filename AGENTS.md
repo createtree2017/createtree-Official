@@ -359,3 +359,88 @@ LEAD_RATE_LIMIT_PER_HOUR=5
 5. 기타 문서
 
 모르는 것은 추측하지 않는다. 문서와 코드에서 확인하고, 그래도 불확실하면 사용자에게 질문한다.
+
+---
+
+## 14. Codex 스킬 사용 규칙
+
+이 저장소는 repo 전용 스킬을 `.agents/skills/`에 둔다. Codex는 작업 내용이 스킬 설명과 맞으면 자동으로 사용할 수 있으며, 중요한 작업에서는 사용자가 `$스킬명`으로 직접 호출할 수 있다.
+
+### 기본 자동 사용 스킬
+
+병원 영업용 랜딩페이지, CTA, Hero, 패키지, FAQ, B2C Preview, 상담 폼, Sticky CTA, 반응형, 의료광고 안전 문구, 상담 리드 DB/API/관리자, Railway 배포 작업에서는 `$createtree-landing-polish`를 우선 사용한다.
+
+기존 UI를 고도화하거나 디자인 감사를 할 때는 `$redesign-existing-projects`를 함께 사용한다.
+
+긴 파일 작성, 큰 컴포넌트 분리, 전체 산출물 작성처럼 코드 생략이나 누락을 피해야 하는 작업에는 `$full-output-enforcement`를 함께 사용한다.
+
+React 컴포넌트 성능, 컴포넌트 분리, props/API 구조, 재사용 패턴 작업에는 `$vercel-react-best-practices`와 `$vercel-composition-patterns`를 함께 사용한다.
+
+UI/UX, 접근성, 폼 사용성, 포커스 상태, 모바일 터치 영역 점검에는 `$web-design-guidelines`를 함께 사용한다.
+
+Express API, 관리자 인증, JWT, CORS, Helmet, 개인정보 리드 저장, 입력값 검증, 보안 리뷰 작업에는 `$security-best-practices`를 함께 사용한다.
+
+성능, 접근성, SEO, Core Web Vitals, Lighthouse 기준 품질 점검에는 `$web-quality-audit`, `$performance`, `$core-web-vitals`, `$accessibility`, `$seo`를 필요한 범위에서 함께 사용한다.
+
+Railway 배포, 환경변수, DB 연결, 도메인, health check, build/start command, 배포 장애 점검에는 `$use-railway`를 함께 사용한다.
+
+### 참고용 디자인 스킬
+
+`$gpt-taste`와 `$high-end-visual-design`은 설치되어 있지만 자동 사용을 제한한다. 이 두 스킬은 새 Hero, CTA, 앱 목업, 프리미엄 비주얼 방향을 탐색할 때만 명시적으로 참고한다.
+
+두 스킬이 Tailwind, GSAP, Framer Motion, 특정 폰트, 특정 아이콘 도입을 요구하더라도 이 프로젝트에서는 기존 React + TypeScript + Vite + vanilla CSS 구조로 변환해 적용한다. 새 의존성은 사용자가 명시적으로 승인하기 전까지 추가하지 않는다.
+
+### 스킬 충돌 시 우선순위
+
+스킬 지침이 프로젝트 규칙과 충돌하면 다음 순서를 따른다.
+
+1. Codex 상위 시스템/개발자 지침
+2. 사용자 최신 요청
+3. 이 `AGENTS.md`
+4. `$createtree-landing-polish`
+5. `docs/06-hospital-sales-landing/20260501-병원영업용_랜딩페이지_제작계획.md`
+6. `$security-best-practices`, `$use-railway`
+7. `$vercel-react-best-practices`, `$vercel-composition-patterns`, `$web-design-guidelines`
+8. `$web-quality-audit`, `$performance`, `$core-web-vitals`, `$accessibility`, `$seo`
+9. `$redesign-existing-projects`
+10. `$full-output-enforcement`
+11. `$gpt-taste`, `$high-end-visual-design` 등 참고용 외부 디자인 스킬
+
+### 운영 방식
+
+- `!!질문!!` 요청에서는 스킬이 있더라도 파일을 수정하지 않는다.
+- `!!승인!!` 요청에서는 필요한 파일 수정은 가능하지만 `git add`, `git commit`, `git push`는 하지 않는다.
+- `!!푸시!!` 요청에서만 사용자가 명시한 범위 안에서 git stage/commit/push를 수행한다.
+- `!!테스트!!`가 있고 화면 검증이 필요한 작업이면 브라우저 기반 데스크톱, 태블릿, 모바일 검증을 수행한다.
+- 스킬을 새로 설치하거나 수정한 뒤 Codex가 인식하지 못하면 Codex 세션을 재시작해 확인한다.
+
+---
+
+## 15. MCP 활용 규칙
+
+MCP는 무조건 많이 연결하지 않고, 현재 프로젝트의 보안과 검증 목적에 맞는 범위에서만 사용한다.
+
+### 기본 원칙
+
+- 로컬 파일 읽기, 검색, 수정은 Codex 기본 파일 도구와 shell을 우선 사용한다. 별도 filesystem MCP는 필수로 두지 않는다.
+- OpenAI API, 모델, Agents, Codex 관련 최신 문서 확인은 `openaiDeveloperDocs` MCP 또는 `$openai-docs`를 우선 사용한다.
+- 브라우저 검증은 `!!테스트!!`가 포함된 화면 작업에서 Browser Use 플러그인 또는 `$playwright` 스킬을 사용한다.
+- PostgreSQL/DB MCP는 기본 비활성으로 둔다. 병원 상담 리드 개인정보와 운영 DB URL 보호가 우선이므로, 필요 시 read-only, schema-only, production 금지 원칙으로 별도 승인 후 사용한다.
+- Google Drive 등 외부 문서 MCP는 사용자가 명시적으로 Drive/Docs/Sheets/Slides 파일을 언급했을 때만 사용한다.
+
+### 검증 자동화 기준
+
+- 자동 검증은 MCP 의존보다 repo 내부 `scripts/quick_validate.py` 같은 로컬 스크립트를 우선한다.
+- 기본 구조 검증은 `npm.cmd run validate` 또는 `python scripts/quick_validate.py`로 수행한다.
+- 타입 검증은 `npm.cmd run typecheck`로 수행한다.
+- 배포 전 빌드 검증은 `npm.cmd run build` 또는 `npm.cmd run verify:build`로 수행하되, 사용자가 요청하지 않은 작업에서 임의로 장시간 빌드를 반복하지 않는다.
+- 브라우저 검증 절차는 `scripts/browser_smoke.md`를 따른다.
+
+### MCP별 사용 전략
+
+| 구분 | 사용 전략 |
+| --- | --- |
+| filesystem | 현재 Codex 파일 도구와 shell로 충분하므로 별도 MCP 설치를 기본값으로 하지 않는다. |
+| openai docs | 이미 `openaiDeveloperDocs` MCP가 설정되어 있으므로 OpenAI 관련 최신 문서 확인에만 사용한다. |
+| browser/playwright | 화면 검증, 폼 검증, 반응형 확인에 사용한다. 테스트 파일 생성보다 브라우저 실검증을 우선한다. |
+| database/postgres | 지금은 정적 코드와 migration 검증을 우선한다. 실제 DB 연결 MCP는 운영 정보 보호를 위해 별도 승인 후 제한적으로 사용한다. |

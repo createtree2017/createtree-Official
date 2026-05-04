@@ -1,0 +1,7 @@
+interface:
+  display_name: "기존 화면 고급화"
+  short_description: "기존 UI를 현재 스택 안에서 고도화"
+  brand_color: "#2563EB"
+  default_prompt: "Use $redesign-existing-projects to audit and polish the existing UI without changing the stack."
+policy:
+  allow_implicit_invocation: true

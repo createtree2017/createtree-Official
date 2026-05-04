@@ -7,6 +7,10 @@
     "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
     "dev:client": "vite --host 0.0.0.0",
     "dev:server": "tsx watch server/src/index.ts",
+    "validate": "python scripts/quick_validate.py",
+    "validate:python": "python scripts/check_python_dev_libs.py",
+    "verify": "npm run validate && npm run validate:python && npm run typecheck",
+    "verify:build": "npm run verify && npm run build",
     "typecheck": "tsc -p tsconfig.client.json && tsc -p tsconfig.server.json --noEmit",
     "build": "tsc -p tsconfig.client.json && vite build && tsc -p tsconfig.server.json",
     "start": "node dist/server/src/index.js"
@@ -40,4 +44,3 @@
     "node": ">=22"
   }
 }
-
