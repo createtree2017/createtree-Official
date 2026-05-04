@@ -13,8 +13,10 @@ export function JourneySection() {
           {journeySteps.map((step, index) => (
             <article className="timeline-item" key={step.stage}>
               <span className="timeline-index">{String(index + 1).padStart(2, "0")}</span>
-              <h3>{step.stage}</h3>
-              <p>{step.mother}</p>
+              <div>
+                <h3>{step.stage}</h3>
+                <p>{step.mother}</p>
+              </div>
               <strong>{step.hospital}</strong>
             </article>
           ))}
@@ -23,4 +25,3 @@ export function JourneySection() {
     </section>
   );
 }
-

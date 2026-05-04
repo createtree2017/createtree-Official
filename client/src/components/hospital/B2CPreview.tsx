@@ -18,7 +18,7 @@ export function B2CPreview() {
             <strong>창조트리문화센터</strong>
           </div>
           <h3>임신부터 출산 후까지 이어지는 우리병원 문화혜택</h3>
-          <p>AI 이미지 만들고, 문화센터 참여하고, 출산 준비 선물까지 만나보세요.</p>
+          <p>이미지 혜택, 태교 클래스, 출산 준비 선물까지 한 페이지에서 확인할 수 있습니다.</p>
           <div className="preview-actions">
             <button type="button">
               <Smartphone size={16} /> 앱 설치
@@ -28,7 +28,7 @@ export function B2CPreview() {
             </button>
           </div>
           <div className="preview-benefits">
-            <span>AI 이미지 1년 이용권</span>
+            <span>이미지 혜택 1년 이용권</span>
             <span>태교 클래스</span>
             <span>
               <Gift size={14} /> 출산 준비 혜택

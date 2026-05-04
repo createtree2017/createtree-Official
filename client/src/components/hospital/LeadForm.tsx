@@ -128,6 +128,7 @@ export function LeadForm() {
 
       <input
         className="honeypot"
+        name="website"
         tabIndex={-1}
         autoComplete="off"
         value={form.website}
@@ -138,32 +139,67 @@ export function LeadForm() {
       <div className="form-grid">
         <label>
           병원명 *
-          <input value={form.hospitalName} onChange={(event) => updateField("hospitalName", event.target.value)} />
+          <input
+            name="hospitalName"
+            autoComplete="organization"
+            value={form.hospitalName}
+            onChange={(event) => updateField("hospitalName", event.target.value)}
+          />
           {fieldErrors.hospitalName && <span>{fieldErrors.hospitalName}</span>}
         </label>
         <label>
           지역 *
-          <input placeholder="예: 서울 강남구" value={form.region} onChange={(event) => updateField("region", event.target.value)} />
+          <input
+            name="region"
+            autoComplete="address-level2"
+            placeholder="예: 서울 강남구"
+            value={form.region}
+            onChange={(event) => updateField("region", event.target.value)}
+          />
           {fieldErrors.region && <span>{fieldErrors.region}</span>}
         </label>
         <label>
           담당자명 *
-          <input value={form.contactName} onChange={(event) => updateField("contactName", event.target.value)} />
+          <input
+            name="contactName"
+            autoComplete="name"
+            value={form.contactName}
+            onChange={(event) => updateField("contactName", event.target.value)}
+          />
           {fieldErrors.contactName && <span>{fieldErrors.contactName}</span>}
         </label>
         <label>
           연락처 *
-          <input value={form.phone} onChange={(event) => updateField("phone", event.target.value)} />
+          <input
+            name="phone"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            value={form.phone}
+            onChange={(event) => updateField("phone", event.target.value)}
+          />
           {fieldErrors.phone && <span>{fieldErrors.phone}</span>}
         </label>
         <label>
           이메일
-          <input type="email" value={form.email} onChange={(event) => updateField("email", event.target.value)} />
+          <input
+            name="email"
+            type="email"
+            autoComplete="email"
+            spellCheck={false}
+            value={form.email}
+            onChange={(event) => updateField("email", event.target.value)}
+          />
           {fieldErrors.email && <span>{fieldErrors.email}</span>}
         </label>
         <label>
           병원 유형 *
-          <select value={form.hospitalType} onChange={(event) => updateField("hospitalType", event.target.value)}>
+          <select
+            name="hospitalType"
+            autoComplete="off"
+            value={form.hospitalType}
+            onChange={(event) => updateField("hospitalType", event.target.value)}
+          >
             <option value="">선택해주세요</option>
             {hospitalTypes.map((type) => (
               <option key={type} value={type}>
@@ -176,6 +212,8 @@ export function LeadForm() {
         <label>
           월평균 산모 고객 수
           <select
+            name="monthlyMaternityRange"
+            autoComplete="off"
             value={form.monthlyMaternityRange}
             onChange={(event) => updateField("monthlyMaternityRange", event.target.value)}
           >
@@ -189,6 +227,8 @@ export function LeadForm() {
         <label>
           산후조리원 운영 여부
           <select
+            name="hasPostpartumCenter"
+            autoComplete="off"
             value={form.hasPostpartumCenter}
             onChange={(event) => updateField("hasPostpartumCenter", event.target.value)}
           >
@@ -220,6 +260,7 @@ export function LeadForm() {
       <label className="message-label">
         문의 내용
         <textarea
+          name="message"
           rows={4}
           value={form.message}
           onChange={(event) => updateField("message", event.target.value)}
@@ -241,10 +282,13 @@ export function LeadForm() {
       {fieldErrors.privacyAgreed && <span className="field-error">{fieldErrors.privacyAgreed}</span>}
 
       <button className="primary-button form-submit" type="submit" disabled={submitState === "submitting"}>
-        {submitState === "submitting" ? "접수 중..." : "상담 신청 접수하기"} <Send size={18} />
+        {submitState === "submitting" ? "접수 중…" : "상담 신청 접수하기"} <Send size={18} />
       </button>
-      {message && <p className={`form-message ${submitState}`}>{message}</p>}
+      {message && (
+        <p className={`form-message ${submitState}`} aria-live="polite">
+          {message}
+        </p>
+      )}
     </form>
   );
 }
-
