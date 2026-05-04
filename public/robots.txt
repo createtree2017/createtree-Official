@@ -8,4 +8,4 @@ Disallow: /admin
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://createtree.ai.kr/sitemap.xml
+Sitemap: https://hospital.createtree.co.kr/sitemap.xml
