@@ -1,4 +1,4 @@
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, MinusCircle } from "lucide-react";
 import { comparisonRows } from "../../data/hospitalLanding";
 
 export function ComparisonSection() {
@@ -22,9 +22,19 @@ export function ComparisonSection() {
           {comparisonRows.map((row) => (
             <div className="comparison-row" role="row" key={row.label}>
               <strong>{row.label}</strong>
-              <span>{row.legacy}</span>
+              <span className="comparison-legacy">
+                <span className="comparison-mobile-label">
+                  <MinusCircle size={16} aria-hidden="true" /> 기존
+                </span>
+                <span>{row.legacy}</span>
+              </span>
               <span className="comparison-positive">
-                <CheckCircle2 size={18} /> {row.createtree}
+                <span className="comparison-mobile-label">
+                  <CheckCircle2 size={16} aria-hidden="true" /> 창조
+                </span>
+                <span className="comparison-positive-value">
+                  <CheckCircle2 className="comparison-desktop-icon" size={18} aria-hidden="true" /> {row.createtree}
+                </span>
               </span>
             </div>
           ))}
@@ -33,4 +43,3 @@ export function ComparisonSection() {
     </section>
   );
 }
-
