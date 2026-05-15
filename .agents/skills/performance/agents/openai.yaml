@@ -4,4 +4,4 @@ interface:
   brand_color: "#16A34A"
   default_prompt: "Use $performance to identify web performance bottlenecks."
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false

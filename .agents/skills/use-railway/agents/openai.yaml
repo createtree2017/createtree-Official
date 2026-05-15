@@ -4,4 +4,4 @@ interface:
   brand_color: "#6D28D9"
   default_prompt: "Use $use-railway to check Railway deployment and environment configuration."
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false

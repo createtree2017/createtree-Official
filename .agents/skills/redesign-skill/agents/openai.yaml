@@ -4,4 +4,4 @@ interface:
   brand_color: "#2563EB"
   default_prompt: "Use $redesign-existing-projects to audit and polish the existing UI without changing the stack."
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false

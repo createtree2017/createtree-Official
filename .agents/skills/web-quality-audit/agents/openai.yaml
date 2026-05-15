@@ -4,4 +4,4 @@ interface:
   brand_color: "#0EA5E9"
   default_prompt: "Use $web-quality-audit to audit the landing page quality."
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false

@@ -4,4 +4,4 @@ interface:
   brand_color: "#111827"
   default_prompt: "Use $vercel-composition-patterns to refactor React component architecture safely."
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false
