@@ -254,6 +254,14 @@ textarea:focus-visible {
   word-break: keep-all;
 }
 
+.story-intro-ai-mark {
+  color: transparent;
+  background: linear-gradient(100deg, #18808a 0%, #0b8fe8 36%, #6947d9 68%, #ee2f86 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-weight: 820;
+}
+
 .story-intro-cta {
   display: inline-flex;
   justify-self: center;
