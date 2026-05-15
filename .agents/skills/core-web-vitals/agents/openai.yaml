@@ -4,4 +4,4 @@ interface:
   brand_color: "#F97316"
   default_prompt: "Use $core-web-vitals to review LCP, INP, and CLS risks."
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false

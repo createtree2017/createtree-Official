@@ -13,8 +13,9 @@ export function StoryIntroHero() {
           </span>
         </h1>
 
-        <p className="story-intro-brandline" aria-label="창조트리 문화센터">
+        <p className="story-intro-brandline" aria-label="창조트리 AI 문화센터">
           <span>창조트리</span>
+          <span className="story-intro-ai-mark">+ AI +</span>
           <span>문화센터</span>
         </p>
 

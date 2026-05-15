@@ -4,4 +4,4 @@ interface:
   brand_color: "#7C3AED"
   default_prompt: "Use $accessibility to audit keyboard, form, and screen reader accessibility."
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false

@@ -4,4 +4,4 @@ interface:
   brand_color: "#0F766E"
   default_prompt: "Use $full-output-enforcement to produce complete, unabridged implementation output."
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false

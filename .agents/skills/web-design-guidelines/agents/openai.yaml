@@ -4,4 +4,4 @@ interface:
   brand_color: "#2563EB"
   default_prompt: "Use $web-design-guidelines to audit the current web UI against interface best practices."
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false

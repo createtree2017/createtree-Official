@@ -374,15 +374,15 @@ LEAD_RATE_LIMIT_PER_HOUR=5
 
 긴 파일 작성, 큰 컴포넌트 분리, 전체 산출물 작성처럼 코드 생략이나 누락을 피해야 하는 작업에는 `$full-output-enforcement`를 함께 사용한다.
 
-React 컴포넌트 성능, 컴포넌트 분리, props/API 구조, 재사용 패턴 작업에는 `$vercel-react-best-practices`와 `$vercel-composition-patterns`를 함께 사용한다.
+React 컴포넌트 성능, 컴포넌트 분리, props/API 구조, 재사용 패턴 작업에는 필요 시 `$vercel-react-best-practices`와 `$vercel-composition-patterns`를 명시적으로 함께 사용한다.
 
-UI/UX, 접근성, 폼 사용성, 포커스 상태, 모바일 터치 영역 점검에는 `$web-design-guidelines`를 함께 사용한다.
+UI/UX, 접근성, 폼 사용성, 포커스 상태, 모바일 터치 영역 점검에는 필요 시 `$web-design-guidelines`를 명시적으로 함께 사용한다.
 
-Express API, 관리자 인증, JWT, CORS, Helmet, 개인정보 리드 저장, 입력값 검증, 보안 리뷰 작업에는 `$security-best-practices`를 함께 사용한다.
+Express API, 관리자 인증, JWT, CORS, Helmet, 개인정보 리드 저장, 입력값 검증, 보안 리뷰 작업에는 필요 시 `$security-best-practices`를 명시적으로 함께 사용한다.
 
-성능, 접근성, SEO, Core Web Vitals, Lighthouse 기준 품질 점검에는 `$web-quality-audit`, `$performance`, `$core-web-vitals`, `$accessibility`, `$seo`를 필요한 범위에서 함께 사용한다.
+성능, 접근성, SEO, Core Web Vitals, Lighthouse 기준 품질 점검에는 필요 시 `$web-quality-audit`, `$performance`, `$core-web-vitals`, `$accessibility`, `$seo`를 명시적으로 함께 사용한다.
 
-Railway 배포, 환경변수, DB 연결, 도메인, health check, build/start command, 배포 장애 점검에는 `$use-railway`를 함께 사용한다.
+Railway 배포, 환경변수, DB 연결, 도메인, health check, build/start command, 배포 장애 점검에는 필요 시 `$use-railway`를 명시적으로 함께 사용한다.
 
 ### 참고용 디자인 스킬
 
@@ -444,3 +444,40 @@ MCP는 무조건 많이 연결하지 않고, 현재 프로젝트의 보안과 �
 | openai docs | 이미 `openaiDeveloperDocs` MCP가 설정되어 있으므로 OpenAI 관련 최신 문서 확인에만 사용한다. |
 | browser/playwright | 화면 검증, 폼 검증, 반응형 확인에 사용한다. 테스트 파일 생성보다 브라우저 실검증을 우선한다. |
 | database/postgres | 지금은 정적 코드와 migration 검증을 우선한다. 실제 DB 연결 MCP는 운영 정보 보호를 위해 별도 승인 후 제한적으로 사용한다. |
+
+---
+
+## 16. 스킬 목록과 자동 갱신
+
+### 스킬 위치와 목록
+
+- Codex repo-local 스킬은 `.agents/skills/`에 둔다.
+- 설치된 스킬 목록은 `.agents/skills/SKILLS_INDEX.md`에서 확인한다.
+- 이 목록은 직접 편집하지 않고 `npm run skills:sync`로 재생성한다.
+- 스킬 구조와 목록 최신성은 `npm run skills:check`로 검증한다.
+- 기존 `npm run verify`는 스킬 검증을 포함한다.
+- 자동 호출은 `$createtree-landing-polish`만 기본값으로 둔다.
+- 공통 품질/참고 스킬은 컨텍스트와 속도 보호를 위해 `$스킬명`으로 명시 호출할 때만 사용한다.
+
+### 자동 Skill Impact Check
+
+기능 개발, 기존 기능 변경, 업데이트 완료 시 Codex는 아래 항목을 자동 확인한다.
+
+1. 반복 작업 규칙이나 새 랜딩/리드 운영 흐름이 생겼는가?
+2. API, DB, 컴포넌트, 검증 명령, 문서 위치가 바뀌었는가?
+3. 기존 스킬 설명이 현재 코드와 달라졌는가?
+4. 새 기능이 향후 반복 개발될 가능성이 큰가?
+
+하나라도 해당하면 관련 스킬을 업데이트하고 `npm run skills:sync` 및 `npm run skills:check`를 실행한다.
+
+### 사용자 확인이 필요한 운영 정책 변경
+
+아래 변경은 자동 반영하지 않고 사용자 확인 후 스킬에 반영한다.
+
+- 배포/인프라 기준 변경
+- 운영 DB 접근 원칙 변경
+- 개인정보/보안 기준 변경
+- 의료광고/법무 표현 기준 변경
+- AI provider/model 운영 기준 변경
+- 금전/계약/영업 데이터 기준 변경
+- 스킬 자동화 권한, `!!승인!!`, `!!푸시!!`, `!!테스트!!` 규칙 변경
