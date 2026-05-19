@@ -80,7 +80,7 @@ export function SolutionSection() {
                   {(index <= 1 || index === 2) && (
                     <div
                       className={`solution-image-stack ${index === 1 ? "class-image-stack" : ""} ${index === 2 ? "mission-image-stack" : ""}`}
-                      aria-label={index === 2 ? "미션형 리워드 예시" : index === 1 ? "문화센터 클래스 예시" : "이미지 생성 예시"}
+                      aria-label={index === 2 ? "미션형 혜택 예시" : index === 1 ? "문화센터 클래스 예시" : "이미지 생성 예시"}
                     >
                       {(index === 2 ? missionRewardImages : index === 1 ? classProgramImages : aiStudioImages).map(
                         (image) => (

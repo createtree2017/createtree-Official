@@ -18,6 +18,12 @@ const staticDir = existsSync(path.join(productionStaticDir, "index.html"))
   ? productionStaticDir
   : developmentStaticDir;
 const indexHtml = path.join(staticDir, "index.html");
+const spaRoutes = new Set(["/", "/admin", "/admin/"]);
+
+function noindexPrivateRoutes(_req: express.Request, res: express.Response, next: express.NextFunction) {
+  res.setHeader("X-Robots-Tag", "noindex, nofollow");
+  next();
+}
 
 app.set("trust proxy", 1);
 app.use(
@@ -32,6 +38,8 @@ app.use(
 );
 app.use(express.json({ limit: "1mb" }));
 
+app.use(["/api", "/admin"], noindexPrivateRoutes);
+
 app.get("/api/health", (_req, res) => {
   res.json({ ok: true, service: "ct-official-hospital-landing" });
 });
@@ -40,10 +48,23 @@ app.use("/api/hospital-leads", hospitalLeadsRouter);
 app.use("/api/admin", adminAuthRouter);
 app.use("/api/admin/hospital-leads", adminHospitalLeadsRouter);
 
+app.use("/api", (_req, res) => {
+  res.status(404).json({
+    ok: false,
+    code: "NOT_FOUND",
+    message: "요청한 API 경로를 찾을 수 없습니다."
+  });
+});
+
 app.use(express.static(staticDir));
 
-app.get(/.*/, (_req, res) => {
-  res.sendFile(indexHtml);
+app.get(/.*/, (req, res) => {
+  if (spaRoutes.has(req.path)) {
+    res.sendFile(indexHtml);
+    return;
+  }
+
+  res.status(404).type("text/plain").send("Not Found");
 });
 
 app.use((error: unknown, _req: express.Request, res: express.Response, _next: express.NextFunction) => {

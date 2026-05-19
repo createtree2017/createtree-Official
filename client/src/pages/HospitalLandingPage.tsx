@@ -6,6 +6,7 @@ import { JourneySection } from "../components/hospital/JourneySection";
 import { LandingNav } from "../components/hospital/LandingNav";
 import { OperationSection } from "../components/hospital/OperationSection";
 import { PackagesSection } from "../components/hospital/PackagesSection";
+import { SafetyReportingSection } from "../components/hospital/SafetyReportingSection";
 import { SolutionSection } from "../components/hospital/SolutionSection";
 import { StickyCTA } from "../components/hospital/StickyCTA";
 import { StoryIntroHero } from "../components/hospital/StoryIntroHero";
@@ -24,6 +25,7 @@ export function HospitalLandingPage() {
         <JourneySection />
         <ComparisonSection />
         <OperationSection />
+        <SafetyReportingSection />
         <PackagesSection />
         <B2CPreview />
         <FaqSection />
